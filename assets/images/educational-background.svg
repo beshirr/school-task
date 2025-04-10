@@ -1,0 +1,84 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Base background with soft gradient in beige tones -->
+  <defs>
+    <linearGradient id="baseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f0e1" />
+      <stop offset="100%" stop-color="#e8dcc5" />
+    </linearGradient>
+    <pattern id="subtleGrid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#e0d5bc" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#baseGradient)" />
+  <rect width="800" height="600" fill="url(#subtleGrid)" opacity="0.4" />
+  
+  <!-- Subtle wave patterns - more structured and professional -->
+  <path d="M0,150 Q200,180 400,150 T800,150 V600 H0 Z" fill="#f0e6d2" opacity="0.5" />
+  <path d="M0,300 Q200,330 400,300 T800,300 V600 H0 Z" fill="#eee3cc" opacity="0.4" />
+  <path d="M0,450 Q200,480 400,450 T800,450 V600 H0 Z" fill="#ecdfc5" opacity="0.3" />
+  
+  <!-- Minimal Professional elements -->
+  
+  <!-- Abstract document icon -->
+  <g transform="translate(100, 100) scale(0.7)">
+    <rect x="0" y="0" width="55" height="70" rx="2" fill="#d9ceb2" />
+    <rect x="5" y="5" width="35" height="4" rx="1" fill="#8e7b5f" />
+    <rect x="5" y="15" width="45" height="3" rx="1" fill="#8e7b5f" />
+    <rect x="5" y="23" width="40" height="3" rx="1" fill="#8e7b5f" />
+    <rect x="5" y="31" width="45" height="3" rx="1" fill="#8e7b5f" />
+    <rect x="5" y="39" width="30" height="3" rx="1" fill="#8e7b5f" />
+  </g>
+  
+  <!-- Abstract checklist -->
+  <g transform="translate(650, 450) rotate(-3)">
+    <rect x="0" y="0" width="60" height="70" rx="2" fill="#e0d5bc" />
+    <rect x="10" y="10" width="5" height="5" rx="1" fill="#8e7b5f" />
+    <rect x="10" y="25" width="5" height="5" rx="1" fill="#8e7b5f" />
+    <rect x="10" y="40" width="5" height="5" rx="1" fill="#8e7b5f" />
+    <path d="M11,12 L14,15 L18,8" stroke="#f5f0e1" stroke-width="1" />
+    <line x1="20" y1="12" x2="50" y2="12" stroke="#8e7b5f" stroke-width="2" />
+    <line x1="20" y1="27" x2="50" y2="27" stroke="#8e7b5f" stroke-width="2" />
+    <line x1="20" y1="42" x2="50" y2="42" stroke="#8e7b5f" stroke-width="2" />
+  </g>
+  
+  <!-- Dotted grid pattern in one corner -->
+  <g transform="translate(100, 450)">
+    <circle cx="0" cy="0" r="2" fill="#c1b28e" />
+    <circle cx="20" cy="0" r="2" fill="#c1b28e" />
+    <circle cx="40" cy="0" r="2" fill="#c1b28e" />
+    <circle cx="60" cy="0" r="2" fill="#c1b28e" />
+    <circle cx="80" cy="0" r="2" fill="#c1b28e" />
+    <circle cx="0" cy="20" r="2" fill="#c1b28e" />
+    <circle cx="20" cy="20" r="2" fill="#c1b28e" />
+    <circle cx="40" cy="20" r="2" fill="#c1b28e" />
+    <circle cx="60" cy="20" r="2" fill="#c1b28e" />
+    <circle cx="80" cy="20" r="2" fill="#c1b28e" />
+    <circle cx="0" cy="40" r="2" fill="#c1b28e" />
+    <circle cx="20" cy="40" r="2" fill="#c1b28e" />
+    <circle cx="40" cy="40" r="2" fill="#c1b28e" />
+    <circle cx="60" cy="40" r="2" fill="#c1b28e" />
+    <circle cx="80" cy="40" r="2" fill="#c1b28e" />
+  </g>
+
+  <!-- Abstract folders - top right -->
+  <g transform="translate(600, 100) scale(0.7)">
+    <path d="M0,10 L15,10 L20,0 L70,0 L70,60 L0,60 Z" fill="#d9ceb2" />
+    <path d="M0,15 L70,15" stroke="#c1b28e" stroke-width="1" />
+  </g>
+  
+  <!-- Subtle decorative lines - mid right -->
+  <g transform="translate(650, 250)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#c1b28e" stroke-width="2" />
+    <line x1="0" y1="10" x2="60" y2="10" stroke="#c1b28e" stroke-width="2" />
+    <line x1="0" y1="20" x2="70" y2="20" stroke="#c1b28e" stroke-width="2" />
+  </g>
+  
+  <!-- Subtle decorative lines - mid left -->
+  <g transform="translate(70, 270)">
+    <line x1="0" y1="0" x2="80" y2="0" stroke="#c1b28e" stroke-width="2" />
+    <line x1="20" y1="10" x2="80" y2="10" stroke="#c1b28e" stroke-width="2" />
+    <line x1="10" y1="20" x2="80" y2="20" stroke="#c1b28e" stroke-width="2" />
+  </g>
+</svg>

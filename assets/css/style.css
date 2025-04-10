@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/loginBackground.jpg");
+  background-image: url("../images/educational-background.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -44,10 +44,9 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  color : rgb(41, 38, 33);
+  color: rgb(41, 38, 33);
   background-color: rgb(249, 238, 223);
 }
-
 
 input[type="submit"] {
   background-color: #4caf50;
@@ -138,7 +137,9 @@ label {
   transition: background-color 0.3s ease;
 }
 
-.dashboard-button:hover {
+.dashboard-button:hover,
+.login-button:hover,
+.signup-button:hover {
   background-color: #2b1707;
 }
 
@@ -148,7 +149,6 @@ label {
   padding: 20px;
   border-radius: 8px;
 }
-
 
 textarea {
   resize: vertical;
@@ -185,7 +185,7 @@ footer {
 }
 
 #about-this-website a {
-  color: #0077cc;
+  color: #d16a25a1;
   text-decoration: none;
   font-weight: bold;
   font-size: 16px;
@@ -193,26 +193,79 @@ footer {
 
 #about-this-website a:hover {
   text-decoration: underline;
-  color: #005fa3;
+  color: #944800db;
 }
 
-#login-button{
-  width: 100px;
-  height: 40px;
-  font-size: 20px;
-  background-color: #ffffff;
-  margin-right: 80px;
-  margin-top: 120px;
+.login-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgb(243, 187, 103);
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-#signup-button{
-  width: 100px;
-  height: 40px;
-  height: 40;
-  font-size: 20px;
-  margin-left: 80px;
-  background-color: #0077cc;
-  margin-top: 120px;
+.signup-button {
+  padding: 15px 30px;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: rgb(65, 57, 43);
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+
+.task-list-container {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: navajowhite;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 14px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: rgb(65, 57, 43);
+  color:#ddd
+}
+
+.actions button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #3498db;
+}
+
+.edit-btn:hover {
+  background-color: #2980b9;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
 }
 
 .box {
