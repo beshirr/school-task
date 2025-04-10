@@ -269,3 +269,58 @@ th {
 .delete-btn {
   background-color: #e74c3c;
 }
+
+.box {
+  border: 1px solid #ddd;
+  padding: 30px;
+  max-width: 400px;
+  margin: auto;
+  border-radius: 6px;
+  background-color: white;
+  text-align: center;
+}
+
+button.yes {
+  background-color: red;
+}
+
+button.no {
+  background-color: gray;
+}
+
+.links a {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  background-color: white;
+}
+
+.links a:hover {
+  background-color: #f0f0f0;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 6px;
+  max-width: 600px;
+  margin: auto;
+  background-color: white;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.value {
+  margin-bottom: 10px;
+}
+
+.container_h2{
+  background-color: #007BFF;
+  padding: 5px;
+}
