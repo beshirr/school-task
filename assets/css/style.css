@@ -17,6 +17,7 @@ h1 {
   font-size: 36px;
   font-weight: bold;
   text-align: center;
+  font-family: 'Great Vibes', cursive;
   margin-top: 60px;
   margin-bottom: 60px;
 }
@@ -57,6 +58,7 @@ label {
   font-size: 20px;
   font-weight: bold;
   margin-left: 10px;
+  font-family: 'Roboto', sans-serifw;
 }
 
 .btn {
@@ -73,7 +75,7 @@ label {
 }
 
 .navbar {
-  width: 100%; 
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -228,6 +230,7 @@ footer {
 h2 {
   text-align: center;
   margin-bottom: 25px;
+  font-family: 'pacifio', cursive;
 }
 
 table {
@@ -321,6 +324,28 @@ button.no {
 }
 
 .container_h2{
-  background-color: #007BFF;
+  color: #5d4037;
   padding: 5px;
+}
+
+p {
+  font-family: 'pacifio', cursive;
+}
+
+h3 {
+  font-family: 'pacifio', cursive;
+  color: #5d4037;
+}
+
+#update-task {
+  margin-top: 30px;
+  margin-left: 240px;
+  width: 120px;
+  height: 50px;
+  font-size: 17px;
+  font-family: 'Roboto', sans-serif;
+  background-color: #2980b9;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
 }
