@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Edit Task</title>
-  <link rel="stylesheet" href="../../assets/css/style.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/images/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/images/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon-16x16.png" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Edit Task</title>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../../assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../../assets/images/favicon-16x16.png"
+    />
+  </head>
+  <body>
+    <div id="navbar-container"></div>
+
+    <script>
+      fetch("../../includes/navbar_admin.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.body.insertAdjacentHTML("afterbegin", data);
+        });
+    </script>
     <div class="container_h2">
-        <h2>Edit Task</h2>
-
+      <h1>Edit Task</h1>
     </div>
-  <form>
-    <label>Task ID</label>
-    <input type="text" placeholder="id" required />
+    <form>
+      <label>Task ID</label>
+      <input type="text" placeholder="id" required />
 
-    <label>Title</label>
-    <input type="text" placeholder="Grade homework" required />
+      <label>Title</label>
+      <input type="text" placeholder="Grade homework" required />
 
-    <label>Teacher Name</label>
-    <input type="text" placeholder="Name" required />
+      <label>Teacher Name</label>
+      <input type="text" placeholder="Name" required />
 
-    <label>Priority</label>
-    <select>
-      <option selected>low</option>
-      <option>Medium</option>
-      <option>High</option>
-    </select>
+      <label>Priority</label>
+      <select>
+        <option selected>low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
 
-    <label>Description</label>
-    <textarea rows="4"> </textarea>
+      <label>Description</label>
+      <textarea rows="4"> </textarea>
 
-    <button type="submit" id="update-task">Update Task</button>
-  </form>
-</body>
+      <button type="submit" class="btn">Update Task</button>
+    </form>
+  </body>
 </html>
