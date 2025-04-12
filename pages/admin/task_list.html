@@ -22,58 +22,60 @@
       href="../../assets/images/favicon-16x16.png"
     />
     <link rel="manifest" href="../../assets/images/site.webmanifest" />
+
     <title>Tasks List</title>
   </head>
-  <body>
-    <div id="navbar-container"></div>
+  <nav class="navbar">
+    <a href="#" class="brand">tickEd-Admin</a>
 
-    <script>
-      fetch("../../includes/navbar_admin.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.body.insertAdjacentHTML("afterbegin", data);
-        });
-    </script>
-    <div class="task-list-container">
-      <h1>Created Tasks</h1>
+    <ul role="menu">
+      <li><a href="../admin/dashboard.html">Dashboard</a></li>
+      <li><a href="../admin/add_task.html">Add Task</a></li>
+      <li><a href="../admin/task_list.html">Task List</a></li>
+    </ul>
 
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Task Title</th>
-            <th>Teacher</th>
-            <th>Priority</th>
-            <th>Created By</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Example static rows for now (to be replaced with dynamic content) -->
-          <tr>
-            <td>1</td>
-            <td>Test1</td>
-            <td>Test1</td>
-            <td>High</td>
-            <td>admin@example.com</td>
-            <td class="actions">
-              <button class="edit-btn">Edit</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Test2</td>
-            <td>Test1</td>
-            <td>Medium</td>
-            <td>admin@example.com</td>
-            <td class="actions">
-              <button class="edit-btn">Edit</button>
-              <button class="delete-btn">Delete</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </body>
+    <button class="logout-btn btn" aria-label="Logout">Logout</button>
+  </nav>
+
+  <div class="task-list-container">
+    <h1>Created Tasks</h1>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Task Title</th>
+          <th>Teacher</th>
+          <th>Priority</th>
+          <th>Created By</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Example static rows for now (to be replaced with dynamic content) -->
+        <tr>
+          <td>1</td>
+          <td>Test1</td>
+          <td>Test1</td>
+          <td>High</td>
+          <td>admin@example.com</td>
+          <td class="actions">
+            <button class="edit-btn actions-button btn">Edit</button>
+            <button class="delete-btn actions-button btn">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Test2</td>
+          <td>Test1</td>
+          <td>Medium</td>
+          <td>admin@example.com</td>
+          <td>
+            <button class="edit-btn actions-button btn">Edit</button>
+            <button class="delete-btn actions-button btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </html>

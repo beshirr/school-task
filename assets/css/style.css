@@ -11,7 +11,8 @@ body {
   min-height: 100vh;
   justify-items: center;
   align-items: center;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 h1,
@@ -21,7 +22,8 @@ h3 {
   font-size: 36px;
   font-weight: bold;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-top: 25px;
   margin-bottom: 25px;
 }
@@ -36,14 +38,15 @@ h3 {
 
 p {
   font-size: 18px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: #333333;
 }
 form {
   background-color: #ffdead;
   width: 600px;
   margin: 20px auto;
-  margin-top: 30px;
+  margin-top: 10px;
   padding: 20px;
   border: 1px solid #555555;
   border-radius: 5px;
@@ -57,8 +60,8 @@ select,
 textarea {
   width: 90%;
   padding: 10px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
@@ -75,21 +78,54 @@ label {
   font-size: 16px;
   font-weight: bold;
   margin-left: 10px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 .btn {
-  margin-top: 30px;
-  margin-left: 240px;
-  width: 120px;
-  height: 50px;
   font-size: 17px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #ffb74d;
   color: white;
   border-radius: 7px;
   text-decoration: none;
   transition: background-color 0.3s ease;
+}
+
+.main-btns {
+  margin-top: 30px;
+  margin-left: 240px;
+  width: 120px;
+  height: 50px;
+}
+
+.btn:hover {
+  background-color: #ffa040;
+}
+
+.actions-button {
+  margin-right: 10px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background-color: #81c784;
+}
+.edit-btn:hover {
+  background-color: #67c56c;
+}
+.delete-btn {
+  background-color: #e57373;
+}
+.delete-btn:hover {
+  background-color: #e35858;
 }
 
 .index-buttons {
@@ -101,6 +137,10 @@ label {
 
 .signup-button {
   background-color: rgb(65, 57, 43);
+}
+
+.signup-button:hover {
+  background-color: #4e342e;
 }
 
 .logout-btn {
@@ -119,18 +159,10 @@ label {
 
 .dashboard-button {
   width: 90px;
-  height: 20px;
+  height: 30px;
   padding: 15px 30px;
   margin: 5px;
   font-size: 16px;
-  text-decoration: none;
-}
-
-.btn:hover {
-  background-color: #ffa040;
-}
-.signup-button:hover {
-  background-color: #4e342e;
 }
 
 .navbar {
@@ -150,6 +182,7 @@ label {
   color: #5d4037;
   text-decoration: none;
   margin-left: 25px;
+  font-family: "Cascadia Code";
 }
 
 .navbar ul {
@@ -255,28 +288,6 @@ th {
   color: #ddd;
 }
 
-.actions button {
-  margin-right: 10px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  color: white;
-  font-weight: bold;
-}
-
-.edit-btn {
-  background-color: #3498db;
-}
-
-.edit-btn:hover {
-  background-color: #2980b9;
-}
-
-.delete-btn {
-  background-color: #e74c3c;
-}
-
 .box {
   border: 1px solid #ddd;
   padding: 30px;
@@ -285,14 +296,6 @@ th {
   border-radius: 6px;
   background-color: white;
   text-align: center;
-}
-
-button.yes {
-  background-color: red;
-}
-
-button.no {
-  background-color: gray;
 }
 
 .links a {
@@ -314,9 +317,13 @@ button.no {
   border: 1px solid #ccc;
   padding: 20px;
   border-radius: 6px;
-  max-width: 600px;
-  margin: auto;
-  background-color: white;
+  width: 600px;
+  margin: 10px;
+  background-color: #fff8f0;
+}
+
+.card-title {
+  text-align: left;
 }
 
 .value {
