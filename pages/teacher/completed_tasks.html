@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Completed Tasks</title>
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <!-- Bootstrap CSS CDN -->
+</head>
+<body>
+
+  <!-- Navigation bar (placeholder for teacher navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link active" href="#">Completed Tasks</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mt-5">
+    <h2 class="mb-4">Completed Tasks</h2>
+
+    <table class="table table-bordered table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th>Task ID</th>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Description</th>
+          <th>Completed On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Task 1 -->
+        <tr>
+          <td>Task 104</td>
+          <td>Upload Exam Grades</td>
+          <td><span class="badge bg-danger">High</span></td>
+          <td>Upload mid-term grades to the system</td>
+          <td>April 9, 2025</td>
+        </tr>
+
+        <!-- Task 2 -->
+        <tr>
+          <td>Task 105</td>
+          <td>Submit Attendance Report</td>
+          <td><span class="badge bg-warning text-dark">Medium</span></td>
+          <td>Weekly attendance summary submitted to the office</td>
+          <td>April 8, 2025</td>
+        </tr>
+
+        <!-- Task 3 -->
+        <tr>
+          <td>Task 106</td>
+          <td>Clean Up Art Supplies</td>
+          <td><span class="badge bg-success">Low</span></td>
+          <td>Organized and cleaned art materials after project week</td>
+          <td>April 7, 2025</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <a href="dashboard.html" class="btn btn-secondary mt-3">Back to Dashboard</a>
+  </div>
+
+  <!-- Bootstrap JS (Optional) -->
+</body>
+</html>
