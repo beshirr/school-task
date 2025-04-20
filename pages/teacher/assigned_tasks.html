@@ -30,24 +30,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="../../assets/js/helpers.js"></script>
   </head>
   <body>
-    <nav class="navbar">
-      <a href="#" class="brand">SchoolTasks Teacher</a>
-
-      <ul role="menu">
-        <li><a href="../teacher/dashboard.html">Dashboard</a></li>
-        <li>
-          <a href="../teacher/assigned_tasks.html">Assigned Tasks</a>
-        </li>
-        <li>
-          <a href="../teacher/completed_tasks.html">Completed Tasks</a>
-        </li>
-        <li><a href="../teacher/search_tasks.html">Search Tasks</a></li>
-      </ul>
-
-      <button class="logout-btn btn" aria-label="Logout">Logout</button>
-    </nav>
+    <script>
+      include("../../includes/navbar_teacher.html");
+    </script>
 
     <div class="card">
       <div class="card-body">
@@ -59,8 +47,8 @@
           Description: Create a worksheet for Grade 7 on plant reproduction.
         </p>
         <p>Created by: Admin_Ahmed</p>
-        <a href="task_details.html" class="btn actions-button">View Details</a>
-        <a href="#" class="btn actions-button">Mark as Completed</a>
+        <button class="btn actions-button" onclick="">View Details</button>
+        <button class="btn actions-button">Mark as Completed</button>
       </div>
     </div>
     <br />

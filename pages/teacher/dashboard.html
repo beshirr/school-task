@@ -29,35 +29,32 @@
       rel="stylesheet"
     />
   </head>
+  <script src="../../assets/js/helpers.js"></script>
   <body>
-    <nav class="navbar">
-      <a href="#" class="brand">SchoolTasks Teacher</a>
-
-      <ul role="menu">
-        <li><a href="../teacher/dashboard.html">Dashboard</a></li>
-        <li>
-          <a href="../teacher/assigned_tasks.html">Assigned Tasks</a>
-        </li>
-        <li>
-          <a href="../teacher/completed_tasks.html">Completed Tasks</a>
-        </li>
-        <li><a href="../teacher/search_tasks.html">Search Tasks</a></li>
-      </ul>
-
-      <button class="logout-btn btn" aria-label="Logout">Logout</button>
-    </nav>
+    <script>
+      include("../../includes/navbar_teacher.html");
+    </script>
     <h1>Welcome, {user_name}</h1>
     <div class="dahsboard-container">
       <div class="button-group">
-        <a href="search_tasks.html" class="dashboard-button btn"
-          >Search Tasks</a
+        <button
+          class="dashboard-button btn"
+          onclick="window.location.href='search_tasks.html'"
         >
-        <a href="assigned_tasks.html" class="dashboard-button btn"
-          >Assigned Tasks</a
+          Search Tasks
+        </button>
+        <button
+          class="dashboard-button btn"
+          onclick="window.location.href='assigned_tasks.html'"
         >
-        <a href="completed_tasks.html" class="dashboard-button btn"
-          >Completed Tasks</a
+          Assigned Tasks
+        </button>
+        <button
+          class="dashboard-button btn"
+          onclick="window.location.href='completed_tasks.html'"
         >
+          Completed Tasks
+        </button>
       </div>
 
       <div class="task-summary">
