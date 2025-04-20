@@ -29,20 +29,12 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
+    <script src="../../assets/js/helpers.js"></script>
   </head>
   <body>
-    <nav class="navbar">
-      <a href="#" class="brand">tickEd-Admin</a>
-
-      <ul role="menu">
-        <li><a href="../admin/dashboard.html">Dashboard</a></li>
-        <li><a href="../admin/add_task.html">Add Task</a></li>
-        <li><a href="../admin/task_list.html">Task List</a></li>
-      </ul>
-
-      <button class="logout-btn btn" aria-label="Logout">Logout</button>
-    </nav>
-
+    <script>
+      include("../../includes/navbar_admin.html")
+    </script>
     <h1>Welcome, {user_name}</h1>
     <p>Here, you can manage your tasks..</p>
     <div class="dahsboard-container">
