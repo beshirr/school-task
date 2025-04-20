@@ -33,6 +33,10 @@
   </head>
   <script>
     include("../../includes/navbar_admin.html");
+    include("delete_confirm.html");
+    document.addEventListener("DOMContentLoaded", () => {
+      confirm_delete();
+    });
   </script>
 
   <div class="task-list-container">
