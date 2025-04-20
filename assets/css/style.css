@@ -281,7 +281,8 @@ th {
   color: #ddd;
 }
 
-body.box-open .task-list-container {
+body.box-open .task-list-container,
+body.box-open .form-container {
   filter: blur(5px);
   pointer-events: none;
   user-select: none;
@@ -307,7 +308,7 @@ body.box-open .task-list-container {
   border-radius: 10px;
   max-width: 400px;
   text-align: center;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
 }
 
 .links a {

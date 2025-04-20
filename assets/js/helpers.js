@@ -27,12 +27,31 @@ function show_delete_confirm_window(onConfirm) {
 }
 
 function confirm_delete() {
-  document.querySelectorAll('.delete-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
+  document.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
       show_delete_confirm_window(() => {
-        // your delete logic here
+        // deletion logic in phase 3
         console.log("Task deleted!");
       });
     });
+  });
+}
+
+function show_task_added(onConfirm) {
+  const additionMsg = document.getElementById("taskAdded");
+  const backBtn = document.getElementById("backToTasklistBtn");
+
+  additionMsg.style.display = "flex";
+  document.body.classList.add("box-open");
+
+  backBtn.onclick = () => {
+    additionMsg.style.display = "none";
+    window.location.href = "../../pages/admin/task_list.html";
+  };
+}
+
+function added_task_msg() {
+  document.getElementById("addTaskBtn").addEventListener("click", () => {
+    show_task_added(() => {});
   });
 }
