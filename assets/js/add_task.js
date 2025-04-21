@@ -18,7 +18,8 @@ function create_new_task() {
     document.getElementById("teacher").value,
     "admin@example",
     document.getElementById("priority").value,
-    document.getElementById("description").value
+    document.getElementById("description").value,
+    false
   );
   tasks.push(new_task);
   localStorage.setItem("tasks", JSON.stringify(tasks));
