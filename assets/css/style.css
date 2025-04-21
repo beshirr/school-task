@@ -1,25 +1,23 @@
 :root {
-  --primary-color: #5d4037;
-  --primary-light: #ffdead;
-  --primary-bg: #fff8f0;
+  --primary-color: #5C4D4D;       /* Dark brown */
+  --primary-light: #F5F0EB;       /* Cream */
+  --primary-bg: #FFF9F2;          /* Warm white */
 
-  --accent-color: #ffb74d;
-  --accent-dark: #4e342e;
+  --accent-color: #D4A373;        /* Warm tan */
+  --accent-dark: #A68A64;         /* Darker tan */
 
-  --text-primary: #333333;
-  --text-light: #f5f5f5;
+  --text-primary: #333333;        /* Dark gray */
+  --text-light: #FFFFFF;          /* White */
 
-  --success-color: #81c784;
-  --warning-color: #ffb74d;
-  --danger-color: #e57373;
+  --success-color: #7CB518;       /* Olive green */
+  --warning-color: #FFB347;       /* Peach */
+  --danger-color: #E07A5F;        /* Salmon */
 
-  --border-color: #555555;
-  --card-bg: navajowhite;
-  --hover-bg: rgba(0, 0, 0, 0.02);
+  --border-color: #D8C3A5;        /* Light tan */
+  --card-bg: #F8EDE3;             /* Pale tan */
+  --hover-bg: rgba(212, 163, 115, 0.1); /* Tan tint */
 }
-
 body {
-  background-image: url("../images/educational-background.svg");
   background-color: var(--primary-bg);
   background-size: cover;
   background-repeat: repeat;
@@ -43,7 +41,7 @@ h3 {
 }
 
 h1 {
-  font-size: 2.25rem;
+  font-size: 2.75rem;
   margin: 1.5rem 0;
 }
 
@@ -65,7 +63,7 @@ p {
 
 form {
   background-color: var(--primary-light);
-  max-width: 600px;
+  max-width: 900px;
   width: calc(100% - 3rem);
   min-width: 550px;
   margin: 1.25rem auto;
@@ -96,7 +94,7 @@ textarea {
   border-radius: 6px;
   font-size: 1rem;
   color: var(--text-primary);
-  background-color: #f9eee0;
+  background-color: var(--primary-bg);
   transition: border-color 0.3s;
   box-sizing: border-box;
 }
@@ -126,7 +124,7 @@ textarea:focus {
 }
 
 .btn:hover {
-  background-color: #ffa040;
+  background-color: var(--hover-bg);
   transform: translateY(-2px);
 }
 
@@ -379,7 +377,7 @@ tr:hover {
   border: 1px solid #ddd;
   padding: 1.5625rem;
   border-radius: 8px;
-  max-width: 600px;
+  max-width: 900px;
   width: calc(100% - 3rem);
   margin: 0.9375rem auto;
   background-color: var(--primary-bg);
