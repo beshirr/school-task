@@ -55,3 +55,24 @@ function added_task_msg() {
     show_task_added(() => {});
   });
 }
+
+
+function signup_validation(){
+  document.querySelector("form").addEventListener("submit", function (event) {
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm_password").value;
+
+    if (password !== confirm) {
+      alert("Passwords do not match!");
+      event.preventDefault();
+      return;
+    }
+
+    if (document.getElementById("is_admin").checked){
+      window.location.href = "../pages/admin/dashboard.html";
+    }
+    else{
+      window.location.href = "../pages/teacher/dashboard.html";
+    }
+  });
+}
