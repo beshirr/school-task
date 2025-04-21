@@ -1,21 +1,21 @@
 :root {
-  --primary-color: #5C4D4D;       /* Dark brown */
-  --primary-light: #F5F0EB;       /* Cream */
-  --primary-bg: #FFF9F2;          /* Warm white */
+  --primary-color: #5C4D4D;
+  --primary-light: #F5F0EB;
+  --primary-bg: #FFF9F2;
 
-  --accent-color: #D4A373;        /* Warm tan */
-  --accent-dark: #A68A64;         /* Darker tan */
+  --accent-color: #D4A373;
+  --accent-dark: #A68A64;
 
-  --text-primary: #333333;        /* Dark gray */
-  --text-light: #FFFFFF;          /* White */
+  --text-primary: #333333;
+  --text-light: #FFFFFF;
 
-  --success-color: #7CB518;       /* Olive green */
-  --warning-color: #FFB347;       /* Peach */
-  --danger-color: #E07A5F;        /* Salmon */
+  --success-color: #7CB518;
+  --warning-color: #FFB347;
+  --danger-color: #E07A5F;
 
-  --border-color: #D8C3A5;        /* Light tan */
-  --card-bg: #F8EDE3;             /* Pale tan */
-  --hover-bg: rgba(212, 163, 115, 0.1); /* Tan tint */
+  --border-color: #D8C3A5;
+  --card-bg: #F8EDE3;
+  --hover-bg: rgba(212, 163, 115, 0.1);
 }
 body {
   background-color: var(--primary-bg);
@@ -190,7 +190,7 @@ textarea:focus {
   transform: translateY(-1px);
 }
 
-/* Dashboard Cards (formerly buttons) */
+
 .dashboard-button {
   width: 220px;
   height: auto;
@@ -247,7 +247,7 @@ textarea:focus {
   padding: 0 1rem;
 }
 
-/* Alternative color variations */
+
 .dashboard-button.primary:hover {
   background-color: #f0e4d7;
 }
