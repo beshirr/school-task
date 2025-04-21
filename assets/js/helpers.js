@@ -81,6 +81,7 @@ function signup_validation() {
     };
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("current_user", JSON.stringify(user));
     if (document.getElementById("is_admin").checked) {
       window.location.href = "../pages/admin/dashboard.html";
     } else {
@@ -106,6 +107,7 @@ function login_validation() {
     }
     for (let user of users) {
       if (username === user.username && password === user.password) {
+        localStorage.setItem("current_user", JSON.stringify(user));
         if (user.is_admin) {
           window.location.href = "../pages/admin/dashboard.html";
         } else {
