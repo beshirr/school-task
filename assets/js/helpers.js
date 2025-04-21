@@ -50,14 +50,31 @@ function show_task_added(onConfirm) {
   };
 }
 
+function validate_new_task_input() {
+  const title = document.getElementById("title").value;
+  const teacher = document.getElementById("teacher").value;
+  const priority = document.getElementById("priority").value;
+  const description = document.getElementById("description").value;
+  console.log("TESTTTT");
+
+  if (!title || !teacher || !priority || !description) {
+    return false;
+  }
+  return true;
+}
+
 function added_task_msg() {
-  document.getElementById("addTaskBtn").addEventListener("click", () => {
+  document.getElementById("addTaskBtn").addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!validate_new_task_input()) {
+      alert("Please fill in all required fields.");
+      return;
+    }
     show_task_added(() => {});
   });
 }
 
-
-function signup_validation(){
+function signup_validation() {
   document.querySelector("form").addEventListener("submit", function (event) {
     const password = document.getElementById("password").value;
     const confirm = document.getElementById("confirm_password").value;
@@ -68,10 +85,9 @@ function signup_validation(){
       return;
     }
 
-    if (document.getElementById("is_admin").checked){
+    if (document.getElementById("is_admin").checked) {
       window.location.href = "../pages/admin/dashboard.html";
-    }
-    else{
+    } else {
       window.location.href = "../pages/teacher/dashboard.html";
     }
   });
