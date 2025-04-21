@@ -117,8 +117,6 @@ function signup_validation() {
     };
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users))
-    if (document.getElementById("is_admin").checked){
-
     if (document.getElementById("is_admin").checked) {
       window.location.href = "../pages/admin/dashboard.html";
     } else {
