@@ -33,28 +33,30 @@
     <script>
       include("../../includes/navbar_admin.html");
     </script>
-    <h1>Edit Task</h1>
-    <form>
-      <label>Task ID</label>
-      <input type="text" placeholder="id" required />
+    <div class="form-container">
+      <h1>Edit Task</h1>
+      <form>
+        <label>Task ID</label>
+        <input type="text" placeholder="id" required />
 
-      <label>Title</label>
-      <input type="text" placeholder="Grade homework" required />
+        <label>Title</label>
+        <input type="text" placeholder="Grade homework" required />
 
-      <label>Teacher Name</label>
-      <input type="text" placeholder="Name" required />
+        <label>Teacher Name</label>
+        <input type="text" placeholder="Name" required />
 
-      <label>Priority</label>
-      <select>
-        <option selected>low</option>
-        <option>Medium</option>
-        <option>High</option>
-      </select>
+        <label>Priority</label>
+        <select>
+          <option selected>low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
 
-      <label>Description</label>
-      <textarea rows="4"> </textarea>
+        <label>Description</label>
+        <textarea rows="4"> </textarea>
 
-      <button type="submit" class="btn main-btns">Update Task</button>
-    </form>
+        <button type="submit" class="btn main-btns">Update Task</button>
+      </form>
+    </div>
   </body>
 </html>
