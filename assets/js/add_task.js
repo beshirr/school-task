@@ -16,7 +16,7 @@ function create_new_task() {
     id_counter,
     document.getElementById("title").value,
     document.getElementById("teacher").value,
-    "admin@example",
+    JSON.parse(localStorage.getItem('current_user')).email,
     document.getElementById("priority").value,
     document.getElementById("description").value,
     false
