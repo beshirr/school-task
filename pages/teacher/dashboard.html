@@ -37,24 +37,24 @@
     <h1>Welcome, {user_name}</h1>
     <div class="dahsboard-container">
       <div class="button-group">
-        <button
-          class="dashboard-button btn"
-          onclick="window.location.href='search_tasks.html'"
-        >
-          Search Tasks
-        </button>
-        <button
-          class="dashboard-button btn"
-          onclick="window.location.href='assigned_tasks.html'"
-        >
-          Assigned Tasks
-        </button>
-        <button
-          class="dashboard-button btn"
-          onclick="window.location.href='completed_tasks.html'"
-        >
-          Completed Tasks
-        </button>
+        <a href="search_tasks.html" class="dashboard-button">
+          <div class="card-title">Search Task</div>
+          <div class="card-description">
+            Search your assigned tasks by priority
+          </div>
+        </a>
+        <a href="assigned_tasks.html" class="dashboard-button">
+          <div class="card-title">Assigned Tasks</div>
+          <div class="card-description">View all your assigned tasks</div>
+        </a>
+        <a href="completed_tasks.html" class="dashboard-button">
+          <div class="card-title">Completed Tasks</div>
+          <div class="card-description">View all your completed tasks</div>
+        </a>
+        <a href="assigned_tasks.html" class="dashboard-button">
+          <div class="card-title">Calendar</div>
+          <div class="card-description">View due dates with a calendar</div>
+        </a>
       </div>
 
       <div class="task-summary">

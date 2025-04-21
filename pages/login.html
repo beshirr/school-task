@@ -22,18 +22,28 @@
       href="../assets/images/favicon-16x16.png"
     />
     <link rel="manifest" href="../assets/images/site.webmanifest" />
-    <link rel="icon" href="">
+    <link rel="icon" href="" />
     <script src="../assets/js/helpers.js"></script>
   </head>
   <body>
-    <h1>Login</h1>
-    <div id="login-form">
+    <div id="login-form" class="auth-form-container">
+      <h1>Login</h1>
       <form method="post">
         <label for="username">Username:</label>
-        <input type="username" id="username" name="username" required /><br /><br />
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+        /><br /><br />
 
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required /><br /><br />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+        /><br /><br />
 
         <button class="main-btns btn" type="submit">Login</button>
       </form>
