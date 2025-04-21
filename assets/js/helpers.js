@@ -27,18 +27,54 @@ function show_delete_confirm_window(onConfirm) {
 }
 
 function confirm_delete() {
-  document.querySelectorAll('.delete-btn').forEach((btn) => {
-    btn.addEventListener('click', () => {
+  document.querySelectorAll(".delete-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
       show_delete_confirm_window(() => {
-        // your delete logic here
+        // deletion logic in phase 3
         console.log("Task deleted!");
       });
     });
   });
 }
 
+function show_task_added(onConfirm) {
+  const additionMsg = document.getElementById("taskAdded");
+  const backBtn = document.getElementById("backToTasklistBtn");
 
-function signup_validation(){
+  additionMsg.style.display = "flex";
+  document.body.classList.add("box-open");
+
+  backBtn.onclick = () => {
+    additionMsg.style.display = "none";
+    window.location.href = "../../pages/admin/task_list.html";
+  };
+}
+
+function validate_new_task_input() {
+  const title = document.getElementById("title").value;
+  const teacher = document.getElementById("teacher").value;
+  const priority = document.getElementById("priority").value;
+  const description = document.getElementById("description").value;
+  console.log("TESTTTT");
+
+  if (!title || !teacher || !priority || !description) {
+    return false;
+  }
+  return true;
+}
+
+function added_task_msg() {
+  document.getElementById("addTaskBtn").addEventListener("click", (event) => {
+    event.preventDefault();
+    if (!validate_new_task_input()) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+    show_task_added(() => {});
+  });
+}
+
+function signup_validation() {
   document.querySelector("form").addEventListener("submit", function (event) {
     const username = document.getElementById("username").value
     const email = document.getElementById("email").value
@@ -82,9 +118,10 @@ function signup_validation(){
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users))
     if (document.getElementById("is_admin").checked){
+
+    if (document.getElementById("is_admin").checked) {
       window.location.href = "../pages/admin/dashboard.html";
-    }
-    else{
+    } else {
       window.location.href = "../pages/teacher/dashboard.html";
     }
   });
