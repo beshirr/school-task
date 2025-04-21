@@ -55,7 +55,6 @@ function validate_new_task_input() {
   const teacher = document.getElementById("teacher").value;
   const priority = document.getElementById("priority").value;
   const description = document.getElementById("description").value;
-  console.log("TESTTTT");
 
   if (!title || !teacher || !priority || !description) {
     return false;
