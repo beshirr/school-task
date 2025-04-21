@@ -30,12 +30,15 @@
     />
     <title>Tasks List</title>
     <script src="../../assets/js/helpers.js"></script>
+    <script src="../../assets/js/task.js"></script>
+    <script src="../../assets/js/task_list.js"></script>
   </head>
   <script>
     include("../../includes/navbar_admin.html");
     include("delete_confirm.html");
     document.addEventListener("DOMContentLoaded", () => {
       confirm_delete();
+      init_task_list();
     });
   </script>
 
@@ -53,32 +56,7 @@
           <th>Actions</th>
         </tr>
       </thead>
-      <tbody>
-        <!-- Example static rows for now (to be replaced with dynamic content) -->
-        <tr>
-          <td>1</td>
-          <td>Test1</td>
-          <td>Test1</td>
-          <td>High</td>
-          <td>admin@example.com</td>
-          <td class="actions">
-            <button class="edit-btn actions-button btn">Edit</button>
-            <button class="delete-btn actions-button btn">Delete</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Test2</td>
-          <td>Test1</td>
-          <td>Medium</td>
-          <td>admin@example.com</td>
-          <td>
-            <button class="edit-btn actions-button btn">Edit</button>
-            <button class="delete-btn actions-button btn">Delete</button>
-          </td>
-        </tr>
-        
-      </tbody>
+      <tbody></tbody>
     </table>
   </div>
 </html>

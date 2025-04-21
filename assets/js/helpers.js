@@ -1,3 +1,4 @@
+let created_new_task = false;
 function include(file) {
   fetch(file)
     .then((response) => response.text())
@@ -37,46 +38,10 @@ function confirm_delete() {
   });
 }
 
-function show_task_added(onConfirm) {
-  const additionMsg = document.getElementById("taskAdded");
-  const backBtn = document.getElementById("backToTasklistBtn");
-
-  additionMsg.style.display = "flex";
-  document.body.classList.add("box-open");
-
-  backBtn.onclick = () => {
-    additionMsg.style.display = "none";
-    window.location.href = "../../pages/admin/task_list.html";
-  };
-}
-
-function validate_new_task_input() {
-  const title = document.getElementById("title").value;
-  const teacher = document.getElementById("teacher").value;
-  const priority = document.getElementById("priority").value;
-  const description = document.getElementById("description").value;
-
-  if (!title || !teacher || !priority || !description) {
-    return false;
-  }
-  return true;
-}
-
-function added_task_msg() {
-  document.getElementById("addTaskBtn").addEventListener("click", (event) => {
-    event.preventDefault();
-    if (!validate_new_task_input()) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-    show_task_added(() => {});
-  });
-}
-
 function signup_validation() {
   document.querySelector("form").addEventListener("submit", function (event) {
-    const username = document.getElementById("username").value
-    const email = document.getElementById("email").value
+    const username = document.getElementById("username").value;
+    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirm = document.getElementById("confirm_password").value;
     const is_admin = document.getElementById("is_admin").checked;
@@ -115,7 +80,7 @@ function signup_validation() {
       is_admin,
     };
     users.push(user);
-    localStorage.setItem("users", JSON.stringify(users))
+    localStorage.setItem("users", JSON.stringify(users));
     if (document.getElementById("is_admin").checked) {
       window.location.href = "../pages/admin/dashboard.html";
     } else {
@@ -124,7 +89,7 @@ function signup_validation() {
   });
 }
 
-function login_validation(){
+function login_validation() {
   document.querySelector("form").addEventListener("submit", function (event) {
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -140,11 +105,10 @@ function login_validation(){
       return;
     }
     for (let user of users) {
-      if(username === user.username && password === user.password){
+      if (username === user.username && password === user.password) {
         if (user.is_admin) {
           window.location.href = "../pages/admin/dashboard.html";
-        }
-        else{
+        } else {
           window.location.href = "../pages/teacher/dashboard.html";
         }
         return;
