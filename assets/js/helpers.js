@@ -35,7 +35,7 @@ function show_delete_confirm_window(onConfirm) {
   };
 }
 
-function confirm_delete() {
+function actions_btns() {
   const tbody = document.querySelector("tbody");
   if (!tbody) {
     return;
@@ -48,6 +48,17 @@ function confirm_delete() {
       show_delete_confirm_window(() => {
         delete_task(taskId);
       });
+    }
+  });
+
+  tbody.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".edit-btn");
+    if (editBtn) {
+      const taskId = parseInt(
+        editBtn.getAttribute("data-task-id").replace("E", "")
+      );
+      localStorage.setItem("current_edit_task_id", taskId);
+      window.location.href = "../../pages/admin/edit_task.html";
     }
   });
 }

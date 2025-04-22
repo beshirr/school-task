@@ -28,6 +28,7 @@
       rel="stylesheet"
     />
     <script src="../../assets/js/helpers.js"></script>
+    <script src="../../assets/js/task_list.js"></script>
   </head>
   <body>
     <script>
@@ -35,28 +36,47 @@
     </script>
     <div class="form-container">
       <h1>Edit Task</h1>
-      <form>
-        <label>Task ID</label>
-        <input type="text" placeholder="id" required />
+      <form
+        onsubmit="event.preventDefault(); edit_task(JSON.parse(localStorage.getItem('current_edit_task_id')));"
+      >
+        <label>New Title</label>
+        <input
+          id="new_title"
+          type="text"
+          placeholder="Grade homework"
+          required
+        />
 
-        <label>Title</label>
-        <input type="text" placeholder="Grade homework" required />
-
-        <label>Teacher Name</label>
-        <input type="text" placeholder="Name" required />
+        <label>New Teacher Name</label>
+        <input id="new_teacher" type="text" placeholder="Name" required />
 
         <label>Priority</label>
-        <select>
-          <option selected>low</option>
-          <option>Medium</option>
-          <option>High</option>
+        <select id="new_priority">
+          <option value="low">Low</option>
+          <option value="Medium">Medium</option>
+          <option value="High">High</option>
         </select>
 
         <label>Description</label>
-        <textarea rows="4"> </textarea>
+        <textarea id="new_description" rows="4"> </textarea>
 
         <button type="submit" class="btn main-btns">Update Task</button>
       </form>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const taskId = JSON.parse(localStorage.getItem("current_edit_task_id"));
+        const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const task = tasks.find((t) => t.id === taskId);
+
+        if (task) {
+          document.getElementById("new_title").value = task.title;
+          document.getElementById("new_teacher").value = task.name;
+          document.getElementById("new_priority").value = task.priority;
+          document.getElementById("new_description").value =
+            task.description || "";
+        }
+      });
+    </script>
   </body>
 </html>

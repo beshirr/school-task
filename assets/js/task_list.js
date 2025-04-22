@@ -21,7 +21,7 @@ function add_task_to_table() {
     task_priority.textContent = task.priority;
 
     actions.innerHTML = `
-      <button id="edit${task.id}" class="edit-btn actions-button btn">Edit</button>
+      <button id="edit${task.id}" class="edit-btn actions-button btn" data-task-id="E${task.id}">Edit</button>
       <button id="delete${task.id}" class="delete-btn actions-button btn" data-task-id="${task.id}">Delete</button>
     `;
 
@@ -47,4 +47,28 @@ function delete_task(taskId) {
   tasks = tasks.filter((task) => task.id !== taskId);
   localStorage.setItem("tasks", JSON.stringify(tasks));
   add_task_to_table();
+}
+
+function edit_task(taskId) {
+  const new_title = document.getElementById("new_title").value;
+  const new_teacher = document.getElementById("new_teacher").value;
+  const new_priority = document.getElementById("new_priority").value;
+  const new_description = document.getElementById("new_description").value;
+
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks = tasks.map((task) => {
+    if (task.id === taskId) {
+      return {
+        ...task,
+        title: new_title,
+        name: new_teacher,
+        priority: new_priority,
+        description: new_description,
+      };
+    }
+    return task;
+  });
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  window.location.href = "../../pages/admin/task_list.html";
 }
