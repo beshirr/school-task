@@ -21,8 +21,8 @@ function add_task_to_table() {
     task_priority.textContent = task.priority;
 
     actions.innerHTML = `
-      <button class="edit-btn actions-button btn">Edit</button>
-      <button class="delete-btn actions-button btn">Delete</button>
+      <button id="edit${task.id}" class="edit-btn actions-button btn">Edit</button>
+      <button id="delete${task.id}" class="delete-btn actions-button btn" data-task-id="${task.id}">Delete</button>
     `;
 
     tr.appendChild(id);
@@ -37,5 +37,14 @@ function add_task_to_table() {
 }
 
 function init_task_list() {
+  add_task_to_table();
+}
+
+function delete_task(taskId) {
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  taskId = parseInt(taskId);
+
+  tasks = tasks.filter((task) => task.id !== taskId);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
   add_task_to_table();
 }

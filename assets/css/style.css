@@ -1,20 +1,20 @@
 :root {
-  --primary-color: #5C4D4D;
-  --primary-light: #F5F0EB;
-  --primary-bg: #FFF9F2;
+  --primary-color: #5c4d4d;
+  --primary-light: #f5f0eb;
+  --primary-bg: #fff9f2;
 
-  --accent-color: #D4A373;
-  --accent-dark: #A68A64;
+  --accent-color: #d4a373;
+  --accent-dark: #a68a64;
 
   --text-primary: #333333;
-  --text-light: #FFFFFF;
+  --text-light: #ffffff;
 
-  --success-color: #7CB518;
-  --warning-color: #FFB347;
-  --danger-color: #E07A5F;
+  --success-color: #7cb518;
+  --warning-color: #ffb347;
+  --danger-color: #e07a5f;
 
-  --border-color: #D8C3A5;
-  --card-bg: #F8EDE3;
+  --border-color: #d8c3a5;
+  --card-bg: #f8ede3;
   --hover-bg: rgba(212, 163, 115, 0.1);
 }
 body {
@@ -190,7 +190,6 @@ textarea:focus {
   transform: translateY(-1px);
 }
 
-
 .dashboard-button {
   width: 220px;
   height: auto;
@@ -246,7 +245,6 @@ textarea:focus {
   flex-wrap: wrap;
   padding: 0 1rem;
 }
-
 
 .dashboard-button.primary:hover {
   background-color: #f0e4d7;
@@ -443,13 +441,29 @@ footer {
 
 .box-content {
   background-color: white;
-  padding: 1.875rem;
+  padding: 2rem;
   border-radius: 10px;
   max-width: 400px;
   width: 90%;
   text-align: center;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  box-sizing: border-box;
+}
+
+.box-content h2 {
+  margin-top: 0;
+  color: var(--danger-color);
+}
+
+.box-content p {
+  margin: 1rem 0;
+}
+
+.box-content button {
+  margin: 0.5rem;
+}
+
+.box-open {
+  overflow: hidden;
 }
 
 .links a {
