@@ -173,3 +173,12 @@ function update_dashboard_content() {
     }
   });
 }
+
+function starting_index() {
+  current_user = JSON.parse(localStorage.getItem('current_user'));
+  if (!current_user) {
+    return;
+  }
+  (current_user.is_admin)? window.location.href = "../../pages/admin/dashboard.html" :
+  window.location.href = "../../pages/teacher/dashboard.html";
+}
