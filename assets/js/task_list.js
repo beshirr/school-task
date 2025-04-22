@@ -72,3 +72,19 @@ function edit_task(taskId) {
   localStorage.setItem("tasks", JSON.stringify(tasks));
   window.location.href = "../../pages/admin/task_list.html";
 }
+
+function send_current_data_to_edit_form() {
+  document.addEventListener("DOMContentLoaded", () => {
+    const taskId = JSON.parse(localStorage.getItem("current_edit_task_id"));
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const task = tasks.find((t) => t.id === taskId);
+
+    if (task) {
+      document.getElementById("new_title").value = task.title;
+      document.getElementById("new_teacher").value = task.name;
+      document.getElementById("new_priority").value = task.priority;
+      document.getElementById("new_description").value =
+        task.description || "";
+    }
+  });
+}
