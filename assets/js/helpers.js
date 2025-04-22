@@ -199,10 +199,10 @@ function update_dashboard_content() {
   });
 }
 
-<<<<<<< HEAD
 function logout(){
   window.location.href = "../../index.html";
-=======
+}
+
 function starting_index() {
   current_user = JSON.parse(localStorage.getItem("current_user"));
   if (!current_user) {
@@ -211,5 +211,4 @@ function starting_index() {
   current_user.is_admin
     ? (window.location.href = "../../pages/admin/dashboard.html")
     : (window.location.href = "../../pages/teacher/dashboard.html");
->>>>>>> 59daed45429acaaf1a6fbe5ce9e377477d37a5dd
 }
