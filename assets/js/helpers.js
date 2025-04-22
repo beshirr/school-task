@@ -8,33 +8,58 @@ function include(file) {
 }
 
 function show_delete_confirm_window(onConfirm) {
+  console.log("show_delete_confirm_window called");
   const delete_confirm = document.getElementById("confirmWindow");
   const confirmBtn = document.getElementById("confirmBtn");
   const cancelBtn = document.getElementById("cancelBtn");
+
+  if (!delete_confirm || !confirmBtn || !cancelBtn) {
+    console.error("Could not find confirmation window elements");
+    return;
+  }
 
   delete_confirm.style.display = "flex";
   document.body.classList.add("box-open");
 
   confirmBtn.onclick = () => {
+    console.log("Confirm button clicked");
     delete_confirm.style.display = "none";
     document.body.classList.remove("box-open");
     onConfirm();
   };
 
   cancelBtn.onclick = () => {
+    console.log("Cancel button clicked");
     delete_confirm.style.display = "none";
     document.body.classList.remove("box-open");
   };
 }
 
-function confirm_delete() {
-  document.querySelectorAll(".delete-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
+function actions_btns() {
+  const tbody = document.querySelector("tbody");
+  if (!tbody) {
+    return;
+  }
+
+  tbody.addEventListener("click", (event) => {
+    const deleteBtn = event.target.closest(".delete-btn");
+    if (deleteBtn) {
+      const taskId = deleteBtn.getAttribute("data-task-id");
       show_delete_confirm_window(() => {
-        // deletion logic in phase 3
-        console.log("Task deleted!");
+        delete_task(taskId);
       });
-    });
+    }
+  });
+
+  tbody.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".edit-btn");
+    if (editBtn) {
+      const taskId = parseInt(
+        editBtn.getAttribute("data-task-id").replace("E", "")
+      );
+      localStorage.setItem("current_edit_task_id", taskId);
+      window.location.href = "../../pages/admin/edit_task.html";
+    }
   });
 }
 
@@ -174,6 +199,17 @@ function update_dashboard_content() {
   });
 }
 
+<<<<<<< HEAD
 function logout(){
   window.location.href = "../../index.html";
+=======
+function starting_index() {
+  current_user = JSON.parse(localStorage.getItem("current_user"));
+  if (!current_user) {
+    return;
+  }
+  current_user.is_admin
+    ? (window.location.href = "../../pages/admin/dashboard.html")
+    : (window.location.href = "../../pages/teacher/dashboard.html");
+>>>>>>> 59daed45429acaaf1a6fbe5ce9e377477d37a5dd
 }
