@@ -173,3 +173,7 @@ function update_dashboard_content() {
     }
   });
 }
+
+function logout(){
+  window.location.href = "../../index.html";
+}
