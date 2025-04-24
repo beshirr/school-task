@@ -200,10 +200,15 @@ function update_dashboard_content() {
 }
 
 function logout(){
+  console.log("log out");
+  localStorage.setItem("logged_in", false);
   window.location.href = "../../index.html";
 }
 
 function starting_index() {
+  if (JSON.parse(localStorage.getItem("logged_in")) === false) {
+    return;
+  }
   current_user = JSON.parse(localStorage.getItem("current_user"));
   if (!current_user) {
     return;
