@@ -1,7 +1,16 @@
 document.addEventListener("DOMContentLoaded",() => {
     const CurrentTeacher = JSON.parse(localStorage.getItem('current_user')).username;
     const tasks  = JSON.parse(localStorage.getItem("tasks")) || [];
+    console.log("Tasks fetched from localStorage: ", tasks);  // Check the tasks
+    console.log("current teacher: ", CurrentTeacher);
+    tasks.forEach(task => {
+        console.log("task teacher: " , task.name);
+    });
+
     const assignedTasks = tasks.filter(task => task.name === CurrentTeacher && !task.isCompleted);
+    console.log("Assigned tasks for the current teacher: ", assignedTasks);  // Check filtered tasks
+
+    
     
     const container = document.querySelector(".task-list-container"); // Make sure this exists in your HTML
 
@@ -11,7 +20,7 @@ document.addEventListener("DOMContentLoaded",() => {
       const taskCard = document.createElement("div");
       taskCard.classList.add("card_mb_3");
       taskCard.innerHTML = `
-        <div class="card-body">
+        <div class="card">
           <h5 class="card-title">${task.title}</h5>
           <p>Priority: <span class="badge ${task.priority === 'High' ? 'bg-danger' : task.priority === 'Medium' ? 'bg-warning' : 'bg-success'}">${task.priority}</span></p>
           <p>Description: ${task.description}</p>
