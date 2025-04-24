@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded",() => {
     const CurrentTeacher = JSON.parse(localStorage.getItem('current_user')).username;
     const tasks  = JSON.parse(localStorage.getItem("tasks")) || [];
-    const assignedTasks = tasks.filter(task => task.name === currentTeacher && !task.isCompleted);
+    const assignedTasks = tasks.filter(task => task.name === CurrentTeacher && !task.isCompleted);
     
     const container = document.querySelector(".task-list-container"); // Make sure this exists in your HTML
 
