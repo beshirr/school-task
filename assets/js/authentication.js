@@ -84,7 +84,3 @@ function signup_validation() {
     });
   }
   
-  function logout(){
-    window.location.href = "../../index.html";
-    localStorage.setItem("logged_in", "false");
-  }
