@@ -1,3 +1,35 @@
+function init_task_list() {
+  add_task_to_table();
+}
+
+function actions_btns() {
+  const tbody = document.querySelector("tbody");
+  if (!tbody) {
+    return;
+  }
+
+  tbody.addEventListener("click", (event) => {
+    const deleteBtn = event.target.closest(".delete-btn");
+    if (deleteBtn) {
+      const taskId = deleteBtn.getAttribute("data-task-id");
+      show_delete_confirm_window(() => {
+        delete_task(taskId);
+      });
+    }
+  });
+
+  tbody.addEventListener("click", (event) => {
+    const editBtn = event.target.closest(".edit-btn");
+    if (editBtn) {
+      const taskId = parseInt(
+        editBtn.getAttribute("data-task-id").replace("E", "")
+      );
+      localStorage.setItem("current_edit_task_id", taskId);
+      window.location.href = "../../pages/admin/edit_task.html";
+    }
+  });
+}
+
 function add_task_to_table() {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const tbody = document.querySelector("tbody");
@@ -36,9 +68,6 @@ function add_task_to_table() {
   });
 }
 
-function init_task_list() {
-  add_task_to_table();
-}
 
 function delete_task(taskId) {
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
