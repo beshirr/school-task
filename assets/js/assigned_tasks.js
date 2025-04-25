@@ -1,27 +1,29 @@
 document.addEventListener("DOMContentLoaded",() => {
     const CurrentTeacher = JSON.parse(localStorage.getItem('current_user')).username;
     const tasks  = JSON.parse(localStorage.getItem("tasks")) || [];
-    console.log("Tasks fetched from localStorage: ", tasks);  // Check the tasks
+    console.log("Tasks fetched from localStorage: ", tasks);  
     console.log("current teacher: ", CurrentTeacher);
     tasks.forEach(task => {
         console.log("task teacher: " , task.name);
     });
 
     const assignedTasks = tasks.filter(task => task.name === CurrentTeacher && !task.isCompleted);
-    console.log("Assigned tasks for the current teacher: ", assignedTasks);  // Check filtered tasks
+    if (assignedTasks.length === 0) {
+      show_no_task_msg(() => {});
+    }
+    const container = document.querySelector(".task-list-container"); 
 
-    
-    
-    const container = document.querySelector(".task-list-container"); // Make sure this exists in your HTML
+    container.innerHTML = ''; 
+    const header = document.createElement("h1");
+    header.textContent = "Assigned Tasks";
+    container.appendChild(header);
 
-    container.innerHTML = ''; // Clear the container
-  
     assignedTasks.forEach(task => {
       const taskCard = document.createElement("div");
       taskCard.classList.add("card_mb_3");
       taskCard.innerHTML = `
         <div class="card">
-          <h5 class="card-title">${task.title}</h5>
+          <h2>${task.title}</h2>
           <p>Priority: <span class="badge ${task.priority === 'High' ? 'bg-danger' : task.priority === 'Medium' ? 'bg-warning' : 'bg-success'}">${task.priority}</span></p>
           <p>Description: ${task.description}</p>
           <p>Created by: ${task.creator}</p>
@@ -41,7 +43,18 @@ document.addEventListener("DOMContentLoaded",() => {
       tasks[taskIndex].completedOn = new Date().toLocaleDateString();
       localStorage.setItem("tasks", JSON.stringify(tasks));
     }
-  
-    // Refresh the page to show updated tasks
     window.location.reload();
+  }
+
+  function show_no_task_msg(onConfirm) {
+    const additionMsg = document.getElementById("noAssignedTasks");
+    const backBtn = document.getElementById("backToTasklistBtn");
+  
+    additionMsg.style.display = "flex";
+    document.body.classList.add("box-open");
+  
+    backBtn.onclick = () => {
+      additionMsg.style.display = "none";
+      window.location.href = "../../pages/teacher/dashboard.html";
+    }
   }
