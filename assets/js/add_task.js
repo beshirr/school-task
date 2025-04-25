@@ -15,7 +15,7 @@ function create_new_task() {
   const new_task = new Task(
     id_counter,
     document.getElementById("title").value,
-    document.getElementById("teacher").value,
+    document.getElementById("teacher_name_dropdown").value,
     JSON.parse(localStorage.getItem('current_user')).email,
     document.getElementById("priority").value,
     document.getElementById("description").value,
@@ -25,7 +25,6 @@ function create_new_task() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
   id_counter++;
   localStorage.setItem("id_counter", id_counter);
-  created_new_task = true;
 }
 
 function show_task_added(onConfirm) {
@@ -43,7 +42,7 @@ function show_task_added(onConfirm) {
 
 function validate_new_task_input() {
   const title = document.getElementById("title").value;
-  const teacher = document.getElementById("teacher").value;
+  const teacher = document.getElementById("teacher_name_dropdown").value;
   const priority = document.getElementById("priority").value;
   const description = document.getElementById("description").value;
 
@@ -51,4 +50,16 @@ function validate_new_task_input() {
     return false;
   }
   return true;
+}
+
+function select_teacher() {
+  let teacherSelect = document.getElementById("teacher_name_dropdown");
+  let teachers = JSON.parse(localStorage.getItem("users")) || [];
+  teachers = teachers.filter((user) => user.is_admin === false);
+  teachers.forEach((teacher) => {
+    const option = document.createElement("option");
+    option.value = teacher.username;
+    option.textContent = teacher.username;
+    teacherSelect.appendChild(option);
+  });
 }
