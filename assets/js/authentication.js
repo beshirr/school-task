@@ -78,7 +78,7 @@ function signup_validation() {
           return;
         }
       }
-      alert("this account does not exist!");
+      alert("Invalid credentials!");
       event.preventDefault();
       return;
     });
