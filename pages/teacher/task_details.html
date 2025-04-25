@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Task Details</title>
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Task Details</title>
+  <link rel="stylesheet" href="../../assets/css/style.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css" />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -22,28 +22,30 @@
       sizes="16x16"
       href="../../assets/images/favicon-16x16.png"
     />
-    <link rel="manifest" href="../../assets/images/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="manifest" href="../../assets/images/site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <script src="../../assets/js/helpers.js"></script>
-  </head>
-  <body>
-    <script>
-      include("../../includes/navbar_teacher.html")
-    </script>
-    <div class="card">
-      <h3>Task: Grade Homework</h3>
-      <div class="value"><span class="label">Task ID:</span></div>
-      <div class="value"><span class="label">Priority:</span></div>
-      <div class="value"><span class="label">Assigned by:</span></div>
-      <div class="value">
-        <span class="label">Description:</span> <br />
-        Grade all homework from Grade 6 math by Friday evening.
-      </div>
+  <script src="../../assets/js/helpers.js"></script>
+  <script src="../../assets/js/task_details.js"></script>
+</head>
+
+<body>
+  <script>
+    include("../../includes/navbar_teacher.html")
+  </script>
+  <div class="card">
+    <h3>Task: </h3>
+    <div class="value" id="task-id"><span class="label">Task ID:</span></div>
+    <div class="value" id="task-priority"><span class="label">Priority:</span></div>
+    <div class="value" id="task-creator"><span class="label">Assigned by:</span></div>
+    <div class="value" id="task-description">
+      <span class="label">Description:</span> <br />
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
