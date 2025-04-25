@@ -45,12 +45,14 @@ function add_task_to_table() {
     const created_by = document.createElement("td");
     const task_priority = document.createElement("td");
     const actions = document.createElement("td");
+    const is_completed = document.createElement("td");
 
     id.textContent = task.id;
     task_title.textContent = task.title;
     teacher_name.textContent = task.name;
     created_by.textContent = task.creator;
     task_priority.textContent = task.priority;
+    is_completed.textContent = task.isCompleted? 'Yes' : 'No';
 
     actions.innerHTML = `
       <button id="edit${task.id}" class="edit-btn actions-button btn" data-task-id="E${task.id}">Edit</button>
@@ -62,6 +64,7 @@ function add_task_to_table() {
     tr.appendChild(teacher_name);
     tr.appendChild(task_priority);
     tr.appendChild(created_by);
+    tr.appendChild(is_completed);
     tr.appendChild(actions);
 
     tbody.appendChild(tr);
