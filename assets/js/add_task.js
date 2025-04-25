@@ -1,7 +1,9 @@
 function add_task_button() {
   document.getElementById("addTaskBtn").addEventListener("click", (event) => {
     event.preventDefault();
-    create_new_task();
+    if (!create_new_task()) {
+      return;
+    }
     show_task_added(() => {});
   });
 }
@@ -9,7 +11,7 @@ function add_task_button() {
 function create_new_task() {
   if (!validate_new_task_input()) {
     alert("Please fill in all required fields.");
-    return;
+    return false;
   }
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const new_task = new Task(
@@ -25,6 +27,7 @@ function create_new_task() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
   id_counter++;
   localStorage.setItem("id_counter", id_counter);
+  return true;
 }
 
 function show_task_added(onConfirm) {
