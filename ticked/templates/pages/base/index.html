@@ -1,27 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Dashboard{% endblock %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <title>tickEd — Stay on track. Stay tickEd.</title>
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/images/favicon-16x16.png"
-    />
-    <link rel="manifest" href="assets/images/site.webmanifest" />
     <link
       href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
       rel="stylesheet"
@@ -45,7 +32,7 @@
   <body>
     <div class="dashboard-container">
       <img
-        src="assets/images/icon.png"
+        src="../../../../static/images/icon.png"
         alt="tickEd Logo"
         width="120"
         style="position: absolute; top: 0; left: 0; margin-bottom: 20px"
@@ -57,13 +44,13 @@
       <div class="button-group">
         <button
           class="index-buttons btn"
-          onclick="window.location.href='pages/login.html'"
+          onclick="window.location.href='{% url 'accounts:login' %}'"
         >
           Login
         </button>
         <button
           class="signup-button index-buttons btn"
-          onclick="window.location.href='pages/signup.html'"
+          onclick="window.location.href='{% url 'accounts:signup' %}'"
         >
           Sign Up
         </button>
@@ -91,4 +78,5 @@
       </div>
     </footer>
   </body>
+{% endblock %}
 </html>

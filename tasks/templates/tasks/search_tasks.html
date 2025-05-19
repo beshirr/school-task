@@ -1,33 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Teacher Dashboard{% endblock %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
     <title>Search Tasks</title>
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="../../assets/images/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="../../assets/images/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="../../assets/images/favicon-16x16.png"
-    />
-    <link rel="manifest" href="../../assets/images/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
     <script src="../../assets/js/helpers.js"></script>
     <script src="../../assets/js/search_tasks.js"></script>
   </head>
@@ -49,46 +29,7 @@
         <button class="btn main-btns mt-2">Search</button>
       </form>
 
-      <!-- <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Review Safety Guidelines</h3>
-          <p class="card-text">
-            Priority: <span class="badge bg-danger">High</span>
-          </p>
-          <p>
-            Description: Review updated school safety procedures with students.
-          </p>
-          <a href="task_details.html" class="btn actions-button"
-            >View Details</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Print Homework Sheets</h3>
-          <p class="card-text">
-            Priority: <span class="badge bg-warning text-dark">Medium</span>
-          </p>
-          <p>Description: Print English homework for the 6th grade class.</p>
-          <a href="task_details.html" class="btn actions-button"
-            >View Details</a
-          >
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-body">
-          <h3 class="card-title">Clean Up Art Supplies</h3>
-          <p class="card-text">
-            Priority: <span class="badge bg-success">Low</span>
-          </p>
-          <p>Description: Organize and clean up after art class project day.</p>
-          <a href="task_details.html" class="btn actions-button"
-            >View Details</a
-          >
-        </div>
-      </div> -->
     </div>
-  </body>
+  </body>
+{% endblock %}
 </html>
