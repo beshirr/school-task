@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Teacher Dashboard{% endblock %}
+{% block title %}Edit Task{% endblock %}
 
 {% block content %}
 
@@ -11,10 +11,8 @@
     <script src="../../assets/js/helpers.js"></script>
     <script src="../../assets/js/task_list.js"></script>
   </head>
+    {% include 'navbar_admin.html' %}
   <body>
-    <script>
-      include("../../includes/navbar_admin.html");
-    </script>
     <div class="form-container">
       <h1>Edit Task</h1>
       <form

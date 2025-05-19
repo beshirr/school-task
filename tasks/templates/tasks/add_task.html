@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Teacher Dashboard{% endblock %}
+{% block title %}Add Task{% endblock %}
 
 {% block content %}
 
@@ -13,10 +13,10 @@
     <script src="../../assets/js/task.js"></script>
     <script src="../../assets/js/add_task.js"></script>
   </head>
+        {% include 'navbar_admin.html' %}
   <body>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        include("../../includes/navbar_admin.html");
         select_teacher();
         add_task_button();
       });

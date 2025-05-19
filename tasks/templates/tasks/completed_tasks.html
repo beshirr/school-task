@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Teacher Dashboard{% endblock %}
+{% block title %}Completed Tasks{% endblock %}
 
 {% block content %}
 
@@ -11,10 +11,8 @@
     <script src="../../assets/js/helpers.js"></script>
     <script src="../../assets/js/completed_tasks.js"></script>
   </head>
+    {% include 'navbar_teacher.html' %}
   <body>
-    <script>
-      include("../../includes/navbar_teacher.html");
-    </script>
     <div class="container mt-5">
       <h2 class="mb-4">Completed Tasks</h2>
 

@@ -5,14 +5,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <nav class="navbar">
-  <a href="#" class="brand">SchoolTasks | Teacher</a>
+  <a href="#" class="brand">tickEd | Admin</a>
 
   <ul role="menu">
-    <li><a href="/pages/teacher/dashboard.html">Dashboard</a></li>
-    <li><a href="/pages/teacher/assigned_tasks.html">Assigned Tasks</a></li>
-    <li><a href="/pages/teacher/completed_tasks.html">Completed Tasks</a></li>
-    <li><a href="/pages/teacher/search_tasks.html">Search Tasks</a></li>
-    <li><a href="/"></a></li>
+    <li><a href="{% url 'dashboard:admin_dashboard' %}">Dashboard</a></li>
+    <li><a href="{% url 'tasks:add_task' %}">Add Task</a></li>
+    <li><a href="{% url 'tasks:tasks_list' %}">Task List</a></li>
   </ul>
 
   <button class="logout-btn btn" aria-label="Logout" onclick="logout()">Logout</button>

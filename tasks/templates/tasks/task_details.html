@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Teacher Dashboard{% endblock %}
+{% block title %}Task Details{% endblock %}
 
 {% block content %}
 
@@ -11,11 +11,8 @@
   <script src="../../assets/js/helpers.js"></script>
   <script src="../../assets/js/task_details.js"></script>
 </head>
-
+    {% include 'navbar_teacher.html' %}
 <body>
-  <script>
-    include("../../includes/navbar_teacher.html")
-  </script>
   <div class="card">
     <h3>Task: </h3>
     <div class="value" id="task-id"><span class="label">Task ID:</span></div>
