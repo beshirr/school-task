@@ -17,7 +17,7 @@ class Task(models.Model):
     ]
 
     title = models.CharField(max_length=200)
-    description = models.TextField
+    description = models.TextField()
     created_by = models.ForeignKey(
         User,
         on_delete=models.CASCADE,
