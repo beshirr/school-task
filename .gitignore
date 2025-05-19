@@ -1,1 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Django SQLite DB
+db.sqlite3
+
+# Django Migrations Cache
+*/migrations/__pycache__/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+
+# PyCharm
+.idea/
+
+# Byte-compiled / cache
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Environment
 env/
+venv/
+ENV/
+.venv/
