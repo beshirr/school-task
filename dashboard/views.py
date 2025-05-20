@@ -11,9 +11,9 @@ def is_admin(user):
 # Create your views here.
 # @login_required
 def teacher_dashboard(request):
-    total_tasks = Task.objects.all().count()
-    pending_tasks = Task.objects.filter(status='pending').count()
-    tasks_completed = Task.objects.filter(status='completed').count()
+    total_tasks = Task.objects.filter(assigned_to_id=request.user.id).count()
+    pending_tasks = Task.objects.filter(status='pending', assigned_to_id=request.user.id).count()
+    tasks_completed = Task.objects.filter(status='completed', assigned_to_id=request.user.id).count()
     if request.user.is_superuser:
         return redirect('dashboard:admin_dashboard')
     return render(request, 'dashboard/teacher_dashboard.html', {
@@ -27,13 +27,12 @@ def teacher_dashboard(request):
 # @login_required
 # @user_passes_test(is_admin)
 def admin_dashboard(request):
-    total_tasks = Task.objects.all().count()
-    pending_tasks = Task.objects.filter(status='pending').count()
-    tasks_completed = Task.objects.filter(status='completed').count()
+    total_tasks = Task.objects.filter(created_by=request.user.id).count()
+    pending_tasks = Task.objects.filter(status='pending', created_by=request.user.id).count()
+    tasks_completed = Task.objects.filter(status='completed', created_by=request.user.id).count()
     return render(request, 'dashboard/admin_dashboard.html', {
         'user_name' : request.user.username,
         'total_tasks' : total_tasks,
         'pending_tasks': pending_tasks,
         'completed_tasks': tasks_completed,
     })
-
