@@ -3,31 +3,39 @@
 {% block title %}Search Tasks{% endblock %}
 
 {% block content %}
+{% include 'navbar_teacher.html' %}
+<div class="task-list-container">
+  <h1>Search Tasks by Priority</h1>
+  <form method="get">
+    <label for="priority" class="form-label">Filter by Priority</label>
+    <select class="form-select" id="priority" name="priority">
+      <option value="All" {% if selected_priority == 'All' %}selected{% endif %}>All</option>
+      <option value="high" {% if selected_priority == 'High' %}selected{% endif %}>High</option>
+      <option value="medium" {% if selected_priority == 'Medium' %}selected{% endif %}>Medium</option>
+      <option value="low" {% if selected_priority == 'Low' %}selected{% endif %}>Low</option>
+    </select>
+    <button class="btn main-btns mt-2" type="submit">Search</button>
+  </form>
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Search Tasks</title>
-    <script src="../../assets/js/helpers.js"></script>
-    <script src="../../assets/js/search_tasks.js"></script>
-  </head>
-    {% include 'navbar_teacher.html' %}
-  <body>
-    <div class="task-list-container">
-      <h1>Search Tasks by Priority</h1>
-
-      <form>
-        <label for="priority" class="form-label">Filter by Priority</label>
-        <select class="form-select" id="priority">
-          <option selected>All</option>
-          <option>High</option>
-          <option>Medium</option>
-          <option>Low</option>
-        </select>
-        <button class="btn main-btns mt-2">Search</button>
-      </form>
-
+  <hr>
+  {% for task in tasks %}
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">{{ task.title }}</h3>
+        <p class="card-text">
+          Priority: <span class="badge 
+              {% if task.priority == 'High' %}bg-danger
+              {% elif task.priority == 'Medium' %}bg-warning text-dark
+              {% else %}bg-success{% endif %}">
+            {{ task.priority }}
+          </span>
+        </p>
+        <p>Description: {{ task.description }}</p>
+        <a href="{% url 'tasks:view_task' task.id %}" class="btn actions-button">View Details</a>
+      </div>
     </div>
-  </body>
+  {% empty %}
+    <p>No tasks found.</p>
+  {% endfor %}
+</div>
 {% endblock %}
-</html>

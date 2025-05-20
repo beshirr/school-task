@@ -23,7 +23,19 @@ def assigned_tasks(request):
 
 
 def search_tasks(request):
-    return render(request, 'tasks/search_tasks.html')
+    user = request.user
+    selected_priority = request.GET.get('priority', 'All')
+    
+    tasks = Task.objects.filter(assigned_to=2)
+    
+    if selected_priority and selected_priority != 'All':
+        tasks = tasks.filter(priority=selected_priority)
+
+    context = {
+        'tasks': tasks,
+        'selected_priority': selected_priority,
+    }
+    return render(request, 'tasks/search_tasks.html', context)
 
 
 def completed_tasks(request):
