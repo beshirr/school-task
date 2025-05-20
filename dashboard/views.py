@@ -11,9 +11,17 @@ def is_admin(user):
 # Create your views here.
 # @login_required
 def teacher_dashboard(request):
+    total_tasks = Task.objects.all().count()
+    pending_tasks = Task.objects.filter(status='pending').count()
+    tasks_completed = Task.objects.filter(status='completed').count()
     if request.user.is_superuser:
         return redirect('dashboard:admin_dashboard')
-    return render(request, 'dashboard/teacher_dashboard.html')
+    return render(request, 'dashboard/teacher_dashboard.html', {
+        'user_name' : request.user.username,
+        'total_assigned_tasks' : total_tasks,
+        'pending_tasks' : pending_tasks,
+        'completed_tasks' : tasks_completed,
+    })
 
 
 # @login_required

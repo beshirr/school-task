@@ -1,19 +1,9 @@
 {% extends 'base.html' %}
-
 {% block title %}Teacher Dashboard{% endblock %}
-
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Teacher Dashboard</title>
-  </head>
   {% include 'navbar_teacher.html' %}
-  <script src="../../assets/js/helpers.js"></script>
-  <script src="../../assets/js/teacher_dashboard.js"></script>
   <body>
-    <h1>Welcome, {user_name}</h1>
+    <h1>Welcome, {{ user_name }}</h1>
     <div class="dahsboard-container">
       <div class="button-group">
         <a href="{% url 'tasks:search_tasks' %}" class="dashboard-button">
@@ -34,11 +24,9 @@
 
       <div class="task-summary">
         <h3>Task Summary</h3>
-        <p>Total Tasks Assigned: <strong>{total_tasks}</strong></p>
-        <p>Pending Tasks: <strong>{pending_tasks}</strong></p>
-        <p>Completed Tasks: <strong>{completed_tasks}</strong></p>
+        <p><strong>Total Tasks Assigned: </strong> {{ total_assigned_tasks }}</p>
+        <p><strong>Pending Tasks: </strong> {{ pending_tasks }}</p>
+        <p><strong>Completed Tasks: </strong> {{ completed_tasks }}</p>
       </div>
     </div>
-  </body>
 {% endblock %}
-</html>
