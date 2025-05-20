@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required, user_passes_test
+
+from tasks.models import Task
 
 
 def is_admin(user):
@@ -18,5 +19,13 @@ def teacher_dashboard(request):
 # @login_required
 # @user_passes_test(is_admin)
 def admin_dashboard(request):
-    return render(request, 'dashboard/admin_dashboard.html')
+    total_tasks = Task.objects.all().count()
+    pending_tasks = Task.objects.filter(status='pending').count()
+    tasks_completed = Task.objects.filter(status='completed').count()
+    return render(request, 'dashboard/admin_dashboard.html', {
+        'user_name' : request.user.username,
+        'total_tasks' : total_tasks,
+        'pending_tasks': pending_tasks,
+        'completed_tasks': tasks_completed,
+    })
 

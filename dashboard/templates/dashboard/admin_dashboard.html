@@ -2,20 +2,8 @@
 {% block title %}Admin Dashboard{% endblock %}
 
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Admin Dashboard</title>
-    <script src="../../assets/js/helpers.js"></script>
-    <script src="../../assets/js/dashboard.js"></script>
-  </head>
     {% include 'navbar_admin.html' %}
-  <body>
-    <script>
-      update_dashboard_content();
-    </script>
-    <h1>Welcome, {user_name}</h1>
+    <h1>Welcome, {{ user_name }}</h1>
     <p>Here, you can manage your tasks..</p>
     <div>
       <div class="button-group">
@@ -33,9 +21,9 @@
 
       <div class="task-summary">
         <h3>Task Summary</h3>
-
+            <p><strong>Total Created Tasks: </strong> {{ total_tasks }}</p>
+            <p><strong>Pending Tasks: </strong> {{ pending_tasks }}</p>
+            <p><strong>Completed Tasks: </strong> {{ completed_tasks }}</p>
       </div>
     </div>
-  </body>
 {% endblock %}
-</html>
