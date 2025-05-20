@@ -37,7 +37,7 @@
               <td>{{ task.created_at|date:"M d, Y" }}</td>
               <td>
                 <button  class="delete-btn actions-button btn">Delete</button>
-                <button onclick=window.location.href='{% url 'tasks:view_task' task.id %}'
+                <button onclick=window.location.href='{% url 'tasks:edit_task' task.id %}'
                         class="edit-btn actions-button btn">Edit
                 </button>
               </td>

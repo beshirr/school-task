@@ -1,10 +1,20 @@
+from django import forms
 from django.contrib.auth.models import User
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 
 from tasks.models import Task
 
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['title', 'description', 'priority']
+
+    assigned_to = forms.ModelChoiceField(
+        queryset=User.objects.filter(profile__user_type='teacher'),
+        label='Assigned to'
+    )
 
 # Create your views here.
 # @login_required
@@ -23,39 +33,51 @@ def completed_tasks(request):
 def view_task(request, task_id):
     return 'task details'
 
-
-def edit_task(request, task_id):
-    return 'edit task'
-
-
 @csrf_exempt
-def add_tasks(request):
-    if request.method == 'POST':
-        title = request.POST.get('title')
-        teacher_id = request.POST.get('teacher')
-        priority = request.POST.get('priority')
-        description = request.POST.get('description')
-        assigned_to = get_object_or_404(User, id=teacher_id)
-        # Use a hard-coded admin user instead of request.user
-        admin_user = User.objects.get(username='admin_sql')
+# @login_required
+def edit_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
 
-        task = Task.objects.create(
-            title=title,
-            description=description,
-            priority=priority,
-            # created_by=request.user,
-            created_by=admin_user,
-            assigned_to=assigned_to,
-            status='pending'
-        )
-    teachers = User.objects.filter(profile__user_type='teacher')
-    return render(request, 'tasks/add_task.html', {
-        'teachers' : teachers
+    if request.method == 'POST':
+        form = TaskForm(request.POST, instance=task)
+        if form.is_valid():
+            form.save()
+            # pop up window
+            return redirect('../tasks_list')
+    else:
+        form = TaskForm(instance=task)
+    return render(request, 'tasks/edit_task.html', {
+        'form' : form
     })
 
 
+@csrf_exempt # remove after authentication
+# @login_required
+def add_tasks(request):
+    if request.method == 'POST':
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            task = form.save(commit=False)
+            # task.created_by = request.user
+            task.created_by = User.objects.get(username='admin_sql')
+            assigned_to = form.cleaned_data.get('assigned_to')
+            if assigned_to:
+                task.assigned_to = assigned_to
+
+            task.save()
+            # pop up
+            return redirect('tasks:tasks_list')
+    else:
+        form = TaskForm()
+    return render(request, 'tasks/add_task.html', {
+        'form' : form
+    })
+
+
+# @login_required
 def tasks_list(request):
     admin_user = User.objects.get(username='admin_sql')
+    # created_by=request.user
     tasks = Task.objects.filter(created_by=admin_user).order_by('-created_at')
     return render(request, 'tasks/task_list.html', {
         'tasks' : tasks

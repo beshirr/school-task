@@ -1,50 +1,13 @@
 {% extends 'base.html' %}
-
 {% block title %}Edit Task{% endblock %}
-
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Edit Task</title>
-    <script src="../../assets/js/helpers.js"></script>
-    <script src="../../assets/js/task_list.js"></script>
-  </head>
     {% include 'navbar_admin.html' %}
-  <body>
     <div class="form-container">
-      <h1>Edit Task</h1>
-      <form
-        onsubmit="event.preventDefault(); edit_task(JSON.parse(localStorage.getItem('current_edit_task_id')));"
-      >
-        <label>New Title</label>
-        <input
-          id="new_title"
-          type="text"
-          placeholder="Grade homework"
-          required
-        />
-
-        <label>New Teacher Name</label>
-        <input id="new_teacher" type="text" placeholder="Name" required />
-
-        <label>Priority</label>
-        <select id="new_priority">
-          <option value="low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
-
-        <label>Description</label>
-        <textarea id="new_description" rows="4"> </textarea>
-
-        <button type="submit" class="btn main-btns">Update Task</button>
-      </form>
+        <h1>Edit Task</h1>
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit" class="btn main-btns">Update Task</button>
+        </form>
     </div>
-    <script>
-      send_current_data_to_edit_form();
-    </script>
-  </body>
 {% endblock %}
-</html>
