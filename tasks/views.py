@@ -1,10 +1,14 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+import json
 
 from tasks.models import Task
+
 
 class TaskForm(forms.ModelForm):
     class Meta:
@@ -16,17 +20,18 @@ class TaskForm(forms.ModelForm):
         label='Assigned to'
     )
 
-# Create your views here.
-# @login_required
+
+@login_required
 def assigned_tasks(request):
     return render(request, 'tasks/assigned_tasks.html')
 
 
+@login_required
 def search_tasks(request):
     user = request.user
     selected_priority = request.GET.get('priority', 'All')
     
-    tasks = Task.objects.filter(assigned_to=2)
+    tasks = Task.objects.filter(assigned_to=user.id).order_by('-created_at')
     
     if selected_priority and selected_priority != 'All':
         tasks = tasks.filter(priority=selected_priority)
@@ -45,8 +50,7 @@ def completed_tasks(request):
 def view_task(request, task_id):
     return 'task details'
 
-@csrf_exempt
-# @login_required
+@login_required
 def edit_task(request, task_id):
     task = get_object_or_404(Task, id=task_id)
 
@@ -63,22 +67,21 @@ def edit_task(request, task_id):
     })
 
 
-@csrf_exempt # remove after authentication
-# @login_required
+@login_required
 def add_tasks(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.headers.get('x-requested-with') == 'XMLHttpRequest':
         form = TaskForm(request.POST)
         if form.is_valid():
             task = form.save(commit=False)
-            # task.created_by = request.user
-            task.created_by = User.objects.get(username='admin_sql')
+            task.created_by = request.user
             assigned_to = form.cleaned_data.get('assigned_to')
             if assigned_to:
                 task.assigned_to = assigned_to
 
             task.save()
-            # pop up
-            return redirect('tasks:tasks_list')
+            return JsonResponse({'success' : True})
+        else:
+            return JsonResponse({'success' : False, 'errors' : form.errors}, status=400)
     else:
         form = TaskForm()
     return render(request, 'tasks/add_task.html', {
@@ -86,11 +89,17 @@ def add_tasks(request):
     })
 
 
-# @login_required
+@login_required
 def tasks_list(request):
-    admin_user = User.objects.get(username='admin_sql')
-    # created_by=request.user
-    tasks = Task.objects.filter(created_by=admin_user).order_by('-created_at')
+    created_by = request.user
+    tasks = Task.objects.filter(created_by=created_by).order_by('-created_at')
     return render(request, 'tasks/task_list.html', {
         'tasks' : tasks
     })
+
+
+@login_required
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id)
+    task.delete()
+    return redirect('tasks:tasks_list')
