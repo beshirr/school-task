@@ -12,10 +12,13 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            if user.is_superuser:
+                return redirect('dashboard:admin_dashboard')
+            else:
+                return redirect('dashboard:teacher_dashboard')
         else:
             messages.error(request, 'Wrong email or password')
-            return redirect('login')
+            return redirect('accounts:login') #edit name
     return render(request, 'accounts/login.html')
 
 def signup_view(request):
@@ -41,9 +44,11 @@ def signup_view(request):
             user.set_password(password)
             if isAdmin:
                 user.user_type = 'admin'
+                user.is_superuser = True
             else :
                 user.user_type = 'teacher'
+                user.is_superuser = False
             user.save()
-            return redirect('login')
+            return redirect('accounts:login')
 
     return render(request, 'accounts/signup.html')
