@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
 import re
@@ -52,3 +52,9 @@ def signup_view(request):
             return redirect('accounts:login')
 
     return render(request, 'accounts/signup.html')
+
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, "Successfully logged out")
+    return redirect('accounts:login')

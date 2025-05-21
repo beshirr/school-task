@@ -15,5 +15,5 @@
     <li><a href="/ticked/static"></a></li>
   </ul>
 
-  <button class="logout-btn btn" aria-label="Logout" onclick="logout()">Logout</button>
+  <button class="logout-btn btn" aria-label="Logout" onclick="window.location.href='{% url 'accounts:logout' %}'">Logout</button>
 </nav>
