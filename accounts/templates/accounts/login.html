@@ -8,13 +8,13 @@
 <html>
   <head>
     <title>Login</title>
-    <script src="../assets/js/helpers.js"></script>
-    <script src="../assets/js/authentication.js"></script>
   </head>
   <body>
     <div id="login-form" class="auth-form-container">
       <h1>Login</h1>
-      <form method="post" onsubmit="return false">
+      <form method="post">
+        {% csrf_token %}
+
         <label for="username">Username:</label>
         <input
           type="text"
@@ -33,10 +33,20 @@
 
         <button class="main-btns btn" type="submit">Login</button>
       </form>
-      <script>
-        document.addEventListener("DOMContentLoaded", login_validation);
-      </script>
+
     </div>
   </body>
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
 {% endblock %}
 </html>

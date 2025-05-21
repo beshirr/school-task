@@ -8,14 +8,14 @@
 <html>
   <head>
     <title>Sign Up</title>
-    <script src="../assets/js/helpers.js"></script>
-    <script src="../assets/js/authentication.js"></script>
   </head>
   <body>
 
     <div id="signup-form" class="auth-form-container">
       <h1>Sign-Up</h1>
-      <form method="post" onsubmit="return false">
+      <form method="post">
+        {% csrf_token %}
+
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required /><br /><br />
 
@@ -44,11 +44,20 @@
 
         <button class="main-btns btn" type="submit">Sign-Up</button>
       </form>
-      <script>
-        document.addEventListener("DOMContentLoaded", signup_validation);
-      </script>
 
     </div>
   </body>
+
+  {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        {{ message }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
 {% endblock %}
 </html>
