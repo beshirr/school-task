@@ -16,7 +16,7 @@ class TaskForm(forms.ModelForm):
         fields = ['title', 'description', 'priority']
 
     assigned_to = forms.ModelChoiceField(
-        queryset=User.objects.filter(profile__user_type='teacher'),
+        queryset=User.objects.filter(is_superuser=False),
         label='Assigned to'
     )
 
@@ -27,6 +27,7 @@ def assigned_tasks(request):
     return render(request, 'tasks/assigned_tasks.html', {
         'tasks': tasks
     })
+
 
 @login_required
 def search_tasks(request):
