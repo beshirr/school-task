@@ -4,18 +4,20 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script src="../../assets/js/helpers.js"></script>
-    <script src="../../assets/js/assigned_tasks.js"></script>
-      <title>Assigned Tasks</title>
-  </head>
-        {% include 'navbar_teacher.html' %}
-  <body>
     <div class="task-list-container">
       <h1>Assigned Tasks</h1>
-      
+      {% if tasks %}
+        <ul>
+          {% for task in tasks %}
+            <li>
+              <strong>{{ task.title }}</strong> - {{ task.get_priority_display }} -
+              <a href="{% url 'tasks:view_task' task.id %}">View Details</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No assigned tasks found.</p>
+      {% endif %}
     </div>
     <div id="noAssignedTasks" class="box">
       <div class="box-content">
@@ -26,6 +28,5 @@
         </button>
       </div>
     </div>
-  </body>
+  
 {% endblock %}
-</html>

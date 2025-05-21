@@ -4,24 +4,12 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Task Details</title>
-  <script src="../../assets/js/helpers.js"></script>
-  <script src="../../assets/js/task_details.js"></script>
-</head>
-    {% include 'navbar_teacher.html' %}
-<body>
+
   <div class="card">
-    <h3>Task: </h3>
-    <div class="value" id="task-id"><span class="label">Task ID:</span></div>
-    <div class="value" id="task-priority"><span class="label">Priority:</span></div>
-    <div class="value" id="task-creator"><span class="label">Assigned by:</span></div>
-    <div class="value" id="task-description">
-      <span class="label">Description:</span> <br />
-    </div>
+    <h3>Task: {{ task.title }}</h3>
+    <div class="value"><span class="label">Task ID:</span> {{ task.id }}</div>
+    <div class="value"><span class="label">Priority:</span> {{ task.get_priority_display }}</div>
+    <div class="value"><span class="label">Assigned by:</span> {{ task.created_by.username }}</div>
+    <div class="value"><span class="label">Description:</span><br>{{ task.description }}</div>
   </div>
-</body>
 {% endblock %}
-</html>

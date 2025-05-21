@@ -4,24 +4,23 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Completed Tasks</title>
-    <script src="../../assets/js/helpers.js"></script>
-    <script src="../../assets/js/completed_tasks.js"></script>
-  </head>
-    {% include 'navbar_teacher.html' %}
-  <body>
     <div class="container mt-5">
       <h2 class="mb-4">Completed Tasks</h2>
-
-      
+      {% if tasks %}
+        <ul>
+          {% for task in tasks %}
+            <li>
+              {{ task.title }} - {{ task.get_priority_display }} -
+              <a href="{% url 'tasks:view_task' task.id %}">Details</a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        <p>No completed tasks.</p>
+      {% endif %}
     </div>
     <br>
     <div>
-      <a style="margin-left: 20px;" class="btn" href="dashboard.html">Back to Dashboard</a> 
+      <a style="margin-left: 20px;" class="btn" href="{% url 'dashboard:teacher_dashboard' %}">Back to Dashboard</a> 
     </div>
-  </body>
 {% endblock %}
-</html>

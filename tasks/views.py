@@ -23,8 +23,10 @@ class TaskForm(forms.ModelForm):
 
 @login_required
 def assigned_tasks(request):
-    return render(request, 'tasks/assigned_tasks.html')
-
+    tasks = Task.objects.filter(assigned_to=request.user).exclude(status='completed')
+    return render(request, 'tasks/assigned_tasks.html', {
+        'tasks': tasks
+    })
 
 @login_required
 def search_tasks(request):
@@ -43,12 +45,21 @@ def search_tasks(request):
     return render(request, 'tasks/search_tasks.html', context)
 
 
+@login_required
 def completed_tasks(request):
-    return render(request, 'tasks/completed_tasks.html')
+    tasks = Task.objects.filter(assigned_to=request.user, status='completed')
+    return render(request, 'tasks/completed_tasks.html', {
+        'tasks': tasks
+    })
 
 
+@login_required
 def view_task(request, task_id):
-    return 'task details'
+    task = get_object_or_404(Task, id=task_id, assigned_to=request.user)
+    return render(request, 'tasks/task_details.html', {
+        'task': task
+    })
+
 
 @login_required
 def edit_task(request, task_id):
